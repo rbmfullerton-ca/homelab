@@ -1,6 +1,56 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "description": "Handle variable image/version pairs (handles image2/version2)",
+      "customType": "regex",
+      "fileMatch": ["(^|/)variables\\.tf$"],
+      "matchStrings": [
+        "variable\\s+\"image(?<depType>\\d*)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<depType>\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Handle Helm repo, chart, and ver variables",
+      "customType": "regex",
+      "fileMatch": ["(^|/)variables\\.tf$"],
+      "matchStringsStrategy": "combination",
+      "matchStrings": [
+        "variable\\s+\"repo\"\\s+{[^}]*?default\\s+=\\s+\"(?<registryUrl>[^\"]+)\"",
+        "variable\\s+\"chart\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"",
+        "variable\\s+\"ver\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "helm"
+    },
+    {
+      "description": "Handle inline container images in .tf files",
+      "customType": "regex",
+      "fileMatch": ["\\.tf$"],
+      "matchStrings": [
+        "image\\s+=\\s+\"(?<depName>[^:]+):(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Universal Docker logic for all standard and Alpine/LS tags (like Sonarr, Redis, Pi-hole)",
+      "matchDatasources": ["docker"],
+      "versioning": "docker"
+    },
+    {
+      "description": "Handle 'version-' and 'hardcover-v' prefixes as static compatibility tracks",
+      "matchPackageNames": [
+        "lscr.io/linuxserver/radarr",
+        "ghcr.io/pennydreadful/bookshelf"
+      ],
+      "versioning": "regex:^(?<compatibility>.*-v?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:\\.(?<build>\\d+))?$"
+    },
+    {
+      "description": "Lock ComfyUI to its Ubuntu/CUDA environment while updating build date",
+      "matchPackageNames": ["mmartial/comfyui-nvidia-docker"],
+      "versioning": "regex:^(?<compatibility>ubuntu24_cuda12\\.6\\.3-)(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$"
+    }
   ]
 }
