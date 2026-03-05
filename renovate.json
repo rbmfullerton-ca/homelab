@@ -3,25 +3,16 @@
   "extends": ["config:recommended"],
   "customManagers": [
     {
-      "description": "Standard image/version pairs",
+      "description": "Matches all image/version pairs, including numbered ones (image2/version2)",
       "customType": "regex",
       "fileMatch": ["(^|/)variables\\.tf$"],
       "matchStrings": [
-        "variable\\s+\"image\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+        "variable\\s+\"image(?<number>\\d*)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<number>\""
       ],
       "datasourceTemplate": "docker"
     },
     {
-      "description": "Numbered image/version pairs (e.g. image2 and image_version2)",
-      "customType": "regex",
-      "fileMatch": ["(^|/)variables\\.tf$"],
-      "matchStrings": [
-        "variable\\s+\"image(?<number>\\d+)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<number>\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "description": "Helm repo, chart, and ver variables",
+      "description": "Matches Helm repo, chart, and ver variables",
       "customType": "regex",
       "fileMatch": ["(^|/)variables\\.tf$"],
       "matchStringsStrategy": "combination",
@@ -33,7 +24,7 @@
       "datasourceTemplate": "helm"
     },
     {
-      "description": "Inline container images in .tf files",
+      "description": "Matches inline container images in .tf files",
       "customType": "regex",
       "fileMatch": ["\\.tf$"],
       "matchStrings": [
