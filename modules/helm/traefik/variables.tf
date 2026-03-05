@@ -1,4 +1,4 @@
-﻿variable "app_name" {
+variable "app_name" {
   description = "The name of the app/deployment"
   type        = string
 }
@@ -31,5 +31,5 @@ variable "chart" {
 variable "ver" {
   description = "Version of chart"
   type        = string
-  default     = "39.0.2"
+  default     = "39.0.1"
 }
