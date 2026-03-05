@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "customManagers": [
     {
-      "description": "Match standard image/image_version pairs",
+      "description": "Matches standard image/image_version pairs",
       "customType": "regex",
       "fileMatch": ["(^|/)variables\\.tf$"],
       "matchStrings": [
@@ -12,11 +12,11 @@
       "datasourceTemplate": "docker"
     },
     {
-      "description": "Match numbered image/image_version pairs (e.g., image2/image_version2)",
+      "description": "Matches image2/image_version2",
       "customType": "regex",
       "fileMatch": ["(^|/)variables\\.tf$"],
       "matchStrings": [
-        "variable\\s+\"image(?<number>\\d+)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<number>\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+        "variable\\s+\"image2\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version2\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "docker"
     },
