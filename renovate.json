@@ -3,11 +3,20 @@
   "extends": ["config:recommended"],
   "customManagers": [
     {
-      "description": "Matches all image/version pairs, including numbered ones (image2/version2)",
+      "description": "Match standard image/image_version pairs",
       "customType": "regex",
       "fileMatch": ["(^|/)variables\\.tf$"],
       "matchStrings": [
-        "variable\\s+\"image(?<number>\\d*)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<number>\""
+        "variable\\s+\"image\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Match numbered image/image_version pairs (e.g., image2/image_version2)",
+      "customType": "regex",
+      "fileMatch": ["(^|/)variables\\.tf$"],
+      "matchStrings": [
+        "variable\\s+\"image(?<number>\\d+)\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\\k<number>\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "docker"
     },
@@ -40,7 +49,7 @@
       "versioning": "docker"
     },
     {
-      "description": "Prefix-based versioning for Radarr and Bookshelf",
+      "description": "Handle prefixes for Radarr and Bookshelf",
       "matchPackageNames": [
         "lscr.io/linuxserver/radarr",
         "ghcr.io/pennydreadful/bookshelf"
