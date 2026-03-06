@@ -1,4 +1,4 @@
-﻿resource "kubernetes_network_policy" "allow_servarr_internet_and_dns_jackett_egress_only" {
+﻿resource "kubernetes_network_policy_v1" "allow_servarr_internet_and_dns_jackett_egress_only" {
   metadata {
     name      = "allow-internet-and-dns-jackett-egress-only"
     namespace = "servarr"
@@ -44,7 +44,7 @@
   }
 }
 
-resource "kubernetes_network_policy" "servarr_egress_to_internal" {
+resource "kubernetes_network_policy_v1" "servarr_egress_to_internal" {
   metadata {
     name      = "servarr-egress-to-internal"
     namespace = "servarr"
@@ -76,7 +76,7 @@ resource "kubernetes_network_policy" "servarr_egress_to_internal" {
   }
 }
 
-resource "kubernetes_network_policy" "seerr_egress_allow" {
+resource "kubernetes_network_policy_v1" "seerr_egress_allow" {
   metadata {
     name      = "seerr-egress-allow"
     namespace = "servarr"

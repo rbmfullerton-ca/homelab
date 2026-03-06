@@ -1,4 +1,4 @@
-﻿resource "kubernetes_storage_class" "local_storage" {
+﻿resource "kubernetes_storage_class_v1" "local_storage" {
   metadata {
     name = "local-storage"
   }

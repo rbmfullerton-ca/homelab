@@ -1,4 +1,4 @@
-﻿resource "kubernetes_persistent_volume" "sd_local_pv" {
+﻿resource "kubernetes_persistent_volume_v1" "sd_local_pv" {
   metadata {
     name = "sd-local-pv"
   }
@@ -29,7 +29,7 @@
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "sd_pvc" {
+resource "kubernetes_persistent_volume_claim_v1" "sd_pvc" {
   metadata {
     name = "sd-pvc"
     namespace = "ai"
@@ -46,7 +46,7 @@ resource "kubernetes_persistent_volume_claim" "sd_pvc" {
   }
 }
 
-resource "kubernetes_deployment" "stable_diffusion_webui" {
+resource "kubernetes_deployment_v1" "stable_diffusion_webui" {
   metadata {
     name = "stable-diffusion-webui"
     namespace = "ai"
@@ -96,7 +96,7 @@ resource "kubernetes_deployment" "stable_diffusion_webui" {
         volume {
           name = "sd-data"
           persistent_volume_claim {
-            claim_name = kubernetes_persistent_volume_claim.sd_pvc.metadata[0].name
+            claim_name = kubernetes_persistent_volume_claim_v1.sd_pvc.metadata[0].name
           }
         }
       }
@@ -104,7 +104,7 @@ resource "kubernetes_deployment" "stable_diffusion_webui" {
   }
 }
 
-resource "kubernetes_service" "stable_diffusion_webui" {
+resource "kubernetes_service_v1" "stable_diffusion_webui" {
   metadata {
     name = "stable-diffusion-webui"
     namespace = "ai"

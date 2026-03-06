@@ -1,4 +1,4 @@
-resource "kubernetes_secret" "secret" {
+resource "kubernetes_secret_v1" "secret" {
   metadata {
     name      = "cloudflare-token-secret"
     namespace = var.namespace

@@ -1,4 +1,4 @@
-﻿resource "kubernetes_namespace" "uptimekuma" {
+﻿resource "kubernetes_namespace_v1" "uptimekuma" {
   metadata {
     name = "uptimekuma"
   }
@@ -10,7 +10,7 @@
   }
 }
 
-resource "kubernetes_namespace" "servarr-internal" {
+resource "kubernetes_namespace_v1" "servarr-internal" {
   metadata {
     name = "servarr-internal"
   }
@@ -22,7 +22,7 @@ resource "kubernetes_namespace" "servarr-internal" {
   }
 }
 
-resource "kubernetes_namespace" "ai" {
+resource "kubernetes_namespace_v1" "ai" {
   metadata {
     name = "ai"
   }
@@ -34,7 +34,7 @@ resource "kubernetes_namespace" "ai" {
   }
 }
 
-resource "kubernetes_namespace" "pterodactyl" {
+resource "kubernetes_namespace_v1" "pterodactyl" {
   metadata {
     name = "pterodactyl"
   }
@@ -46,7 +46,7 @@ resource "kubernetes_namespace" "pterodactyl" {
   }
 }
 
-resource "kubernetes_namespace" "cronjobs" {
+resource "kubernetes_namespace_v1" "cronjobs" {
   metadata {
     name = "cronjobs"
   }
@@ -58,7 +58,7 @@ resource "kubernetes_namespace" "cronjobs" {
   }
 }
 
-resource "kubernetes_namespace" "pihole" {
+resource "kubernetes_namespace_v1" "pihole" {
   metadata {
     name = "pihole"
   }
@@ -70,7 +70,7 @@ resource "kubernetes_namespace" "pihole" {
   }
 }
 
-resource "kubernetes_namespace" "pihole2" {
+resource "kubernetes_namespace_v1" "pihole2" {
   metadata {
     name = "pihole2"
   }
@@ -82,7 +82,7 @@ resource "kubernetes_namespace" "pihole2" {
   }
 }
 
-resource "kubernetes_namespace" "servarr" {
+resource "kubernetes_namespace_v1" "servarr" {
   metadata {
     name = "servarr"
   }
@@ -94,7 +94,7 @@ resource "kubernetes_namespace" "servarr" {
   }
 }
 
-resource "kubernetes_namespace" "authentik" {
+resource "kubernetes_namespace_v1" "authentik" {
   metadata {
     name = "authentik"
   }
@@ -106,7 +106,7 @@ resource "kubernetes_namespace" "authentik" {
   }
 }
 
-resource "kubernetes_namespace" "traefik" {
+resource "kubernetes_namespace_v1" "traefik" {
   metadata {
     name = "traefik"
   }
@@ -118,7 +118,7 @@ resource "kubernetes_namespace" "traefik" {
   }
 }
 
-resource "kubernetes_namespace" "cert-manager" {
+resource "kubernetes_namespace_v1" "cert-manager" {
   metadata {
     name = "cert-manager"
   }

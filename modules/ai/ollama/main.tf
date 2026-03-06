@@ -1,4 +1,4 @@
-﻿resource "kubernetes_persistent_volume" "ollama_local_pv" {
+﻿resource "kubernetes_persistent_volume_v1" "ollama_local_pv" {
   metadata {
     name      = "ollama-local-pv"
   }
@@ -31,7 +31,7 @@
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "ollama_pvc" {
+resource "kubernetes_persistent_volume_claim_v1" "ollama_pvc" {
   metadata {
     name      = "ollama-pvc"
     namespace = "ai"
@@ -48,7 +48,7 @@ resource "kubernetes_persistent_volume_claim" "ollama_pvc" {
   }
 }
 
-resource "kubernetes_deployment" "ollama" {
+resource "kubernetes_deployment_v1" "ollama" {
   metadata {
     name      = "ollama"
     namespace = "ai"
@@ -99,7 +99,7 @@ resource "kubernetes_deployment" "ollama" {
         volume {
           name = "ollama-data"
           persistent_volume_claim {
-            claim_name = kubernetes_persistent_volume_claim.ollama_pvc.metadata.0.name
+            claim_name = kubernetes_persistent_volume_claim_v1.ollama_pvc.metadata.0.name
           }
         }
       }
@@ -107,7 +107,7 @@ resource "kubernetes_deployment" "ollama" {
   }
 }
 
-resource "kubernetes_service" "ollama" {
+resource "kubernetes_service_v1" "ollama" {
   metadata {
     name      = "ollama"
     namespace = "ai"

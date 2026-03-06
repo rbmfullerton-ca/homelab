@@ -1,4 +1,4 @@
-﻿resource "kubernetes_persistent_volume" "comfyui_local_pv" {
+﻿resource "kubernetes_persistent_volume_v1" "comfyui_local_pv" {
   metadata {
     name = "comfyui-local-pv"
   }
@@ -29,7 +29,7 @@
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "comfyui_pvc" {
+resource "kubernetes_persistent_volume_claim_v1" "comfyui_pvc" {
   metadata {
     name = "comfyui-pvc"
     namespace = "ai"
@@ -46,7 +46,7 @@ resource "kubernetes_persistent_volume_claim" "comfyui_pvc" {
   }
 }
 
-resource "kubernetes_deployment" "comfyui-nvidia" {
+resource "kubernetes_deployment_v1" "comfyui-nvidia" {
   metadata {
     name = "comfyui-nvidia"
     namespace = "ai"
@@ -124,7 +124,7 @@ resource "kubernetes_deployment" "comfyui-nvidia" {
         volume {
           name = "comfyui-data"
           persistent_volume_claim {
-            claim_name = kubernetes_persistent_volume_claim.comfyui_pvc.metadata[0].name
+            claim_name = kubernetes_persistent_volume_claim_v1.comfyui_pvc.metadata[0].name
           }
         }
       }
@@ -132,7 +132,7 @@ resource "kubernetes_deployment" "comfyui-nvidia" {
   }
 }
 
-resource "kubernetes_service" "comfyui-nvidia" {
+resource "kubernetes_service_v1" "comfyui-nvidia" {
   metadata {
     name = "comfyui-nvidia"
     namespace = "ai"

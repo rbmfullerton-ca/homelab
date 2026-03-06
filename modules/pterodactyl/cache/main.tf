@@ -1,5 +1,5 @@
 ﻿# Deployment
-resource "kubernetes_deployment" "deployment" {
+resource "kubernetes_deployment_v1" "deployment" {
   metadata {
     name      = var.app_name
     namespace = var.namespace
@@ -37,7 +37,7 @@ resource "kubernetes_deployment" "deployment" {
 }
 
 # Service
-resource "kubernetes_service" "service" {
+resource "kubernetes_service_v1" "service" {
   metadata {
     name      = var.app_name
     namespace = var.namespace

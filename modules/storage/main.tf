@@ -1,5 +1,5 @@
 ﻿#servarr
-resource "kubernetes_persistent_volume" "smb-tvshows" {
+resource "kubernetes_persistent_volume_v1" "smb-tvshows" {
   metadata {
     name = "smb-tvshows"
 
@@ -41,7 +41,7 @@ resource "kubernetes_persistent_volume" "smb-tvshows" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-tvshows" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-tvshows" {
   metadata {
     name      = "smb-tvshows"
     namespace = "servarr"
@@ -61,7 +61,7 @@ resource "kubernetes_persistent_volume_claim" "smb-tvshows" {
   }
 }
 
-resource "kubernetes_persistent_volume" "smb-movies" {
+resource "kubernetes_persistent_volume_v1" "smb-movies" {
   metadata {
     name = "smb-movies"
 
@@ -103,7 +103,7 @@ resource "kubernetes_persistent_volume" "smb-movies" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-movies" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-movies" {
   metadata {
     name      = "smb-movies"
     namespace = "servarr"
@@ -124,7 +124,7 @@ resource "kubernetes_persistent_volume_claim" "smb-movies" {
 }
 
 
-resource "kubernetes_persistent_volume" "smb-downloads" {
+resource "kubernetes_persistent_volume_v1" "smb-downloads" {
   metadata {
     name = "smb-downloads"
 
@@ -166,7 +166,7 @@ resource "kubernetes_persistent_volume" "smb-downloads" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-downloads" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-downloads" {
   metadata {
     name      = "smb-downloads"
     namespace = "servarr"
@@ -193,7 +193,7 @@ resource "kubernetes_persistent_volume_claim" "smb-downloads" {
 
 #servarr-internal
 
-resource "kubernetes_persistent_volume" "smb-tvshows-internal" {
+resource "kubernetes_persistent_volume_v1" "smb-tvshows-internal" {
   metadata {
     name = "smb-tvshows-internal"
 
@@ -235,7 +235,7 @@ resource "kubernetes_persistent_volume" "smb-tvshows-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-tvshows-internal" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-tvshows-internal" {
   metadata {
     name      = "smb-tvshows-internal"
     namespace = "servarr-internal"
@@ -255,7 +255,7 @@ resource "kubernetes_persistent_volume_claim" "smb-tvshows-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume" "smb-movies-internal" {
+resource "kubernetes_persistent_volume_v1" "smb-movies-internal" {
   metadata {
     name = "smb-movies-internal"
 
@@ -297,7 +297,7 @@ resource "kubernetes_persistent_volume" "smb-movies-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-movies-internal" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-movies-internal" {
   metadata {
     name      = "smb-movies-internal"
     namespace = "servarr-internal"
@@ -317,7 +317,7 @@ resource "kubernetes_persistent_volume_claim" "smb-movies-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume" "smb-books-internal" {
+resource "kubernetes_persistent_volume_v1" "smb-books-internal" {
   metadata {
     name = "smb-books-internal"
 
@@ -359,7 +359,7 @@ resource "kubernetes_persistent_volume" "smb-books-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-books-internal" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-books-internal" {
   metadata {
     name      = "smb-books-internal"
     namespace = "servarr-internal"
@@ -379,7 +379,7 @@ resource "kubernetes_persistent_volume_claim" "smb-books-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume" "smb-downloads-internal" {
+resource "kubernetes_persistent_volume_v1" "smb-downloads-internal" {
   metadata {
     name = "smb-downloads-internal"
 
@@ -421,7 +421,7 @@ resource "kubernetes_persistent_volume" "smb-downloads-internal" {
   }
 }
 
-resource "kubernetes_persistent_volume_claim" "smb-downloads-internal" {
+resource "kubernetes_persistent_volume_claim_v1" "smb-downloads-internal" {
   metadata {
     name      = "smb-downloads-internal"
     namespace = "servarr-internal"

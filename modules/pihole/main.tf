@@ -1,5 +1,5 @@
 ﻿#PVC
-resource "kubernetes_persistent_volume_claim" "pvclaim" {
+resource "kubernetes_persistent_volume_claim_v1" "pvclaim" {
   metadata {
     name      = "${var.app_name}-claim"
     namespace = var.namespace
@@ -16,7 +16,7 @@ resource "kubernetes_persistent_volume_claim" "pvclaim" {
 }
 
 # Deployment
-resource "kubernetes_deployment" "deployment" {
+resource "kubernetes_deployment_v1" "deployment" {
   metadata {
     name      = var.app_name
     namespace = var.namespace
@@ -147,7 +147,7 @@ resource "kubernetes_deployment" "deployment" {
 }
 
 # Service
-resource "kubernetes_service" "service" {
+resource "kubernetes_service_v1" "service" {
   metadata {
     name      = var.app_name
     namespace = var.namespace
