@@ -1,5 +1,5 @@
 ﻿provider "helm" {
-  kubernetes {
+  kubernetes = {
     config_path = "~/.kube/config"
   }
 }
@@ -12,18 +12,18 @@ resource "helm_release" "deployment" {
   chart      = var.chart
   version    = var.ver
 
-    set {
-    name  = "hostname"
-    value = "rancher.hozzlab.ca"
-  }
-
-  set {
-    name  = "ingress.tls.source"
-    value = "secret"
-  }
-
-  set {
-    name  = "ingress.tls.secretName"
-    value = "tls-rancher-ingress"
-  }
+  set = [
+    {
+      name  = "hostname"
+      value = "rancher.hozzlab.ca"
+    },
+    {
+      name  = "ingress.tls.source"
+      value = "secret"
+    },
+    {
+      name  = "ingress.tls.secretName"
+      value = "tls-rancher-ingress"
+    }
+  ]
 }
