@@ -6,7 +6,7 @@
     }
     authentik = {
       source  = "goauthentik/authentik"
-      version = "~> 2025.6.0" # or latest
+      version = "~> 2025.12.0" # or latest
     }
     pihole = {
       source  = "ryanwholey/pihole"
