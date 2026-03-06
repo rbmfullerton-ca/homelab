@@ -96,7 +96,7 @@ resource "kubernetes_deployment_v1" "stable_diffusion_webui" {
         volume {
           name = "sd-data"
           persistent_volume_claim {
-            claim_name = kubernetes_persistent_volume_claim.sd_pvc.metadata[0].name
+            claim_name = kubernetes_persistent_volume_claim_v1.sd_pvc.metadata[0].name
           }
         }
       }
