@@ -80,7 +80,7 @@ resource "kubernetes_deployment_v1" "ollama" {
         }
         container {
           name             = "ollama"
-          image            = "ollama/ollama:0.17.6"
+          image            = "ollama/ollama:0.17.7"
           port {
             container_port = 11434
           }
