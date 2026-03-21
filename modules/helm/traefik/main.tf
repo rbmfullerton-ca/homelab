@@ -1,10 +1,4 @@
-﻿provider "helm" {
-  kubernetes = {
-    config_path = "~/.kube/config"
-  }
-}
-
-resource "helm_release" "deployment" {
+﻿resource "helm_release" "deployment" {
   name       = var.app_name
   namespace  = var.namespace
   repository = var.repo

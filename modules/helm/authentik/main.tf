@@ -1,10 +1,4 @@
-﻿provider "helm" {
-  kubernetes = {
-    config_path = "~/.kube/config"
-  }
-}
-
-# Helm release resource for deploying Authentik
+﻿# Helm release resource for deploying Authentik
 resource "helm_release" "authentik" {
   name       = var.app_name
   namespace  = var.namespace

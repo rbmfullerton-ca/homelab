@@ -1,10 +1,4 @@
-﻿provider "helm" {
-  kubernetes = {
-    config_path = "~/.kube/config"
-  }
-}
-
-data "kubernetes_secret_v1" "atlantis_gh_key" {
+﻿data "kubernetes_secret_v1" "atlantis_gh_key" {
   metadata {
     name      = "atlantis-github-app-key"
     namespace = var.namespace

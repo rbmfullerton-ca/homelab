@@ -48,7 +48,7 @@ provider "pihole" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     config_path = var.kube_config_path
   }
 }
