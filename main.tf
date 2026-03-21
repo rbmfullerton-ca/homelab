@@ -181,6 +181,8 @@ module "atlantis-helm" {
   source = "./modules/helm/atlantis"
   githubAppSecret = var.atlantis-githubAppSecret
   app_name = var.atlantis
+  authentik_token  = var.authentik_token
+  cloudflare_token = var.cloudflare-token
 }
 
 

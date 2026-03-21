@@ -28,10 +28,6 @@ resource "helm_release" "deployment" {
     name = "environment.ATLANTIS_GH_ORG"
     value = "rbmfullerton"
   },
-#  {
-#    name = "environment.ATLANTIS_GH_TEAM_ALLOWLIST"
-#    value = "admins:plan\\, admins:apply\\, admins:state\\, admins:import\\, admins:unlock\\, admins:approve_policies"
-#  },
   {
     name = "environment.ATLANTIS_EMOJI_REACTION"
     value = "rocket"
@@ -52,6 +48,30 @@ resource "helm_release" "deployment" {
   {
     name = "orgAllowlist"
     value = "github.com/rbmfullerton/homelab"
+  },
+  {
+    name  = "environmentSecrets[0].name"
+    value = "TF_VAR_authentik_token"
+  },
+  {
+    name  = "environmentSecrets[0].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[0].secretKeyRef.key"
+    value = "TF_VAR_authentik_token"
+  },
+  {
+    name  = "environmentSecrets[1].name"
+    value = "TF_VAR_cloudflare_token"
+  },
+  {
+    name  = "environmentSecrets[1].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[1].secretKeyRef.key"
+    value = "TF_VAR_cloudflare_token"
   }
   ]
 
