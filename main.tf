@@ -2,7 +2,7 @@
   backend "kubernetes" {
     secret_suffix    = "atlantis-homelab-state"
     namespace        = "atlantis"
-    config_path   = "~/.kube/config"
+    config_path   = null
   }
 }
 
