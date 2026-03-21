@@ -1,4 +1,10 @@
-﻿variable "authentik_host" {
+﻿variable "kube_config_path" {
+  type        = string
+  description = "Path to kubeconfig"
+  default     = null
+}
+
+variable "authentik_host" {
   description = "Authentik host"
   type        = string
   sensitive   = true
