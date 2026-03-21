@@ -203,6 +203,162 @@ resource "helm_release" "deployment" {
     name  = "environmentSecrets[11].secretKeyRef.key"
     value = "TF_VAR_atlantis-githubAppSecret"
   },
+  {
+    name  = "environmentSecrets[12].name"
+    value = "TF_VAR_homarr_envs"
+  },
+  {
+    name  = "environmentSecrets[12].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[12].secretKeyRef.key"
+    value = "TF_VAR_homarr_envs"
+  },
+  {
+    name  = "environmentSecrets[13].name"
+    value = "TF_VAR_jackett_envs"
+  },
+  {
+    name  = "environmentSecrets[13].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[13].secretKeyRef.key"
+    value = "TF_VAR_jackett_envs"
+  },
+  {
+    name  = "environmentSecrets[14].name"
+    value = "TF_VAR_openwebui_envs"
+  },
+  {
+    name  = "environmentSecrets[14].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[14].secretKeyRef.key"
+    value = "TF_VAR_openwebui_envs"
+  },
+  {
+    name  = "environmentSecrets[15].name"
+    value = "TF_VAR_pterodactyl_panel_envs"
+  },
+  {
+    name  = "environmentSecrets[15].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[15].secretKeyRef.key"
+    value = "TF_VAR_pterodactyl_panel_envs"
+  },
+  {
+    name  = "environmentSecrets[16].name"
+    value = "TF_VAR_pterodactyl_database_envs"
+  },
+  {
+    name  = "environmentSecrets[16].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[16].secretKeyRef.key"
+    value = "TF_VAR_pterodactyl_database_envs"
+  },
+  {
+    name  = "environmentSecrets[17].name"
+    value = "TF_VAR_bazarr_envs"
+  },
+  {
+    name  = "environmentSecrets[17].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[17].secretKeyRef.key"
+    value = "TF_VAR_bazarr_envs"
+  },
+  {
+    name  = "environmentSecrets[18].name"
+    value = "TF_VAR_pihole_envs"
+  },
+  {
+    name  = "environmentSecrets[18].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[18].secretKeyRef.key"
+    value = "TF_VAR_pihole_envs"
+  },
+  {
+    name  = "environmentSecrets[19].name"
+    value = "TF_VAR_pihole_envs2"
+  },
+  {
+    name  = "environmentSecrets[19].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[19].secretKeyRef.key"
+    value = "TF_VAR_pihole_envs2"
+  },
+  {
+    name  = "environmentSecrets[20].name"
+    value = "TF_VAR_pihole2_envs"
+  },
+  {
+    name  = "environmentSecrets[20].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[20].secretKeyRef.key"
+    value = "TF_VAR_pihole2_envs"
+  },
+  {
+    name  = "environmentSecrets[21].name"
+    value = "TF_VAR_pihole2_envs2"
+  },
+  {
+    name  = "environmentSecrets[21].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[21].secretKeyRef.key"
+    value = "TF_VAR_pihole2_envs2"
+  },
+  {
+    name  = "environmentSecrets[22].name"
+    value = "TF_VAR_seerr_envs"
+  },
+  {
+    name  = "environmentSecrets[22].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[22].secretKeyRef.key"
+    value = "TF_VAR_seerr_envs"
+  },
+  {
+    name  = "environmentSecrets[23].name"
+    value = "TF_VAR_sonarr_envs"
+  },
+  {
+    name  = "environmentSecrets[23].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[23].secretKeyRef.key"
+    value = "TF_VAR_sonarr_envs"
+  },
+  {
+    name  = "environmentSecrets[24].name"
+    value = "TF_VAR_radarr_envs"
+  },
+  {
+    name  = "environmentSecrets[24].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[24].secretKeyRef.key"
+    value = "TF_VAR_radarr_envs"
+  },
   ]
 
   set_sensitive = [{

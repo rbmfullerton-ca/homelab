@@ -201,5 +201,17 @@ module "atlantis-helm" {
   authentik_postgresql_password = var.authentik_postgresql_password
   traefik-dashboard-auth = var.traefik-dashboard-auth
   atlantis-githubAppSecret = var.atlantis-githubAppSecret
-
+  homarr_envs = var.homarr_envs
+  jackett_envs = var.jackett_envs
+  openwebui_envs = var.openwebui_envs
+  pterodactyl_panel_envs = var.pterodactyl_panel_envs
+  pterodactyl_database_envs = var.pterodactyl_database_envs
+  bazarr_envs = var.bazarr_envs
+  pihole_envs = var.pihole_envs
+  pihole_envs2 = var.pihole_envs2
+  pihole2_envs = var.pihole2_envs
+  pihole2_envs2 = var.pihole2_envs2
+  seerr_envs = var.seerr_envs
+  sonarr_envs = var.sonarr_envs
+  radarr_envs = var.radarr_envs
 }

@@ -110,3 +110,120 @@ variable "atlantis-githubAppSecret" {
   type = string
   sensitive = true 
 }
+
+variable "homarr_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "jackett_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "openwebui_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pterodactyl_panel_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pterodactyl_database_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "bazarr_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pihole_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pihole_envs2" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pihole2_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pihole2_envs2" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "seerr_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "sonarr_envs" { 
+  sensitive = true 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+}
+
+variable "radarr_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
