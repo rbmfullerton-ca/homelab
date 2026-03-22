@@ -36,7 +36,7 @@ resource "helm_release" "deployment" {
   },
   {
     name = "environment.ATLANTIS_GH_ORG"
-    value = "rbmfullerton"
+    value = "rbmfullerton-ca"
   },
   {
     name = "environment.ATLANTIS_EMOJI_REACTION"
@@ -48,7 +48,7 @@ resource "helm_release" "deployment" {
   },
   {
     name = "orgAllowlist"
-    value = "github.com/rbmfullerton-ca/homelab*"
+    value = "github.com/rbmfullerton-ca/homelab"
   },
   {
     name = "atlantisUrl"
@@ -62,10 +62,6 @@ resource "helm_release" "deployment" {
   {
     name = "volumeClaim.storageClassName"
     value = var.storageClass
-  },
-  {
-    name = "orgAllowlist"
-    value = "github.com/rbmfullerton/homelab"
   },
   {
     name  = "environmentSecrets[0].name"
