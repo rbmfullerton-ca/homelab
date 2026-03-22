@@ -60,6 +60,10 @@ resource "helm_release" "deployment" {
     type = "string"
   },
   {
+    name  = "environment.ATLANTIS_GH_INSTALLATION_ID"
+    value = "118116825"
+  },
+  {
     name = "volumeClaim.storageClassName"
     value = var.storageClass
   },
