@@ -62,15 +62,16 @@ resource "kubernetes_deployment_v1" "deployment" {
         affinity {
           pod_anti_affinity {
             preferred_during_scheduling_ignored_during_execution {
-              topology_key = "kubernetes.io/hostname"
-
-              label_selector {
-                match_labels = {
-                  appsplit = var.app_split
+              weight = 100
+              pod_affinity_term {
+                namespace_selector {}
+                topology_key = "kubernetes.io/hostname"
+                label_selector {
+                  match_labels = {
+                    appsplit = var.app_split
+                  }
                 }
               }
-
-              namespace_selector {}
             }
           }
         }
