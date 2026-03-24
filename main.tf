@@ -186,6 +186,10 @@ module "cert-manager-helm" {
   cloudflare-token = var.cloudflare-token
 }
 
+module "relaoder-helm" {
+  source = "./modules/helm/reloader"
+}
+
 module "atlantis-helm" {
   source = "./modules/helm/atlantis"
   githubAppSecret = var.atlantis-githubAppSecret

@@ -35,6 +35,10 @@ resource "helm_release" "deployment" {
     value = "--automerge"
   },
   {
+    name  = "podTemplate.annotations.secret\\.reloader\\.stakater\\.com/reload"
+    value = "atlantis-terraform-vars"
+  },
+  {
     name = "environment.ATLANTIS_GH_ORG"
     value = "rbmfullerton-ca"
   },
