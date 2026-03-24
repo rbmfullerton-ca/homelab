@@ -35,9 +35,4 @@ resource "kubernetes_secret_v1" "atlantis_terraform_secrets" {
 
   type = "Opaque"
 
-  lifecycle {
-      ignore_changes = [
-        data,
-      ]
-  }
 }
