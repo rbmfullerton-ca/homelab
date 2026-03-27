@@ -5,6 +5,8 @@ resource "helm_release" "deployment" {
   repository = var.repo
   chart      = var.chart
   version    = var.ver
+  timeout    = 900
+  wait       = true
 
   set = [
     {
