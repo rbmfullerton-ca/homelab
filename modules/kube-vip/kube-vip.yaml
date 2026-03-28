@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   labels:
     app.kubernetes.io/name: kube-vip-ds
-    app.kubernetes.io/version: v1.1.1
+    app.kubernetes.io/version: v1.1.0
   name: kube-vip-ds
   namespace: kube-system
 spec:
@@ -46,7 +46,7 @@ spec:
           value: "true"
         - name: address
           value: 192.168.0.180
-        image: ghcr.io/kube-vip/kube-vip:v1.1.1
+        image: ghcr.io/kube-vip/kube-vip:v1.1.0
         name: kube-vip
         securityContext:
           capabilities:
