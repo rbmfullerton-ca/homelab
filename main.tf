@@ -220,3 +220,7 @@ module "atlantis-helm" {
   sonarr_envs = var.sonarr_envs
   radarr_envs = var.radarr_envs
 }
+
+module "longhorn-helm" {
+  source = "./modules/helm/longhorn"
+}

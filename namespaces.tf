@@ -146,3 +146,23 @@ resource "kubernetes_namespace_v1" "atlantis" {
     ]
   }
 }
+
+resource "kubernetes_namespace_v1" "longhorn-system" {
+  metadata {
+    name = "longhorn-system"
+    labels = {
+      "app.kubernetes.io/managed-by" = "Helm"
+    }
+    annotations = {
+      "meta.helm.sh/release-name"      = "longhorn"
+      "meta.helm.sh/release-namespace" = "longhorn-system"
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["cattle.io/status"],
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"],
+    ]
+  }
+}
