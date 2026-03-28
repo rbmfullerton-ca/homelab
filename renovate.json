@@ -40,6 +40,26 @@
         "image\\s+=\\s+\"(?<depName>[^:]+):(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Matches image and version labels in Kubernetes YAML",
+      "customType": "regex",
+      "fileMatch": ["\\.yaml$"],
+      "matchStrings": [
+        "image:\\s+(?<depName>[^:]+):(?<currentValue>[^\\s\\n\"]+)",
+        "app\\.kubernetes\\.io/version:\\s+(?<currentValue>[^\\s\\n\"]+)"
+      ],
+      "depNameTemplate": "ghcr.io/kube-vip/kube-vip",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Matches NVIDIA plugin in HCL maps",
+      "customType": "regex",
+      "fileMatch": ["\\.tf$"],
+      "matchStrings": [
+        "\"image\"\\s+=\\s+\"(?<depName>nvcr\\.io/nvidia/k8s-device-plugin):(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
