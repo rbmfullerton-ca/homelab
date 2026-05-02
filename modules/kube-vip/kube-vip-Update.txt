@@ -1,0 +1,8 @@
+kube-vip auto-update system on master-1:
+
+- Script: /usr/local/scripts/kube-vip-sync.sh
+  Checks GitHub for kube-vip version updates and patches the local k3s manifest if needed.
+
+- Log output: /usr/local/scripts/kube-vip-sync.log
+  Managed via logrotate (/etc/logrotate.d/kube-vip-sync)
+  Retention: 30 days, no compression, daily rotation
