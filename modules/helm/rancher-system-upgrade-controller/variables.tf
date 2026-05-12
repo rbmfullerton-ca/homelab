@@ -25,5 +25,5 @@ variable "chart" {
 variable "ver" {
   description = "Version of chart"
   type        = string
-  default     = "109.0.0"
+  default     = "109.0.1"
 }
