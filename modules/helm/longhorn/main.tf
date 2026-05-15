@@ -5,7 +5,7 @@ resource "helm_release" "deployment" {
   repository = var.repo
   chart      = var.chart
   version    = var.ver
-  timeout    = 900
+  timeout    = 1800
   wait       = true
 
   create_namespace = false
