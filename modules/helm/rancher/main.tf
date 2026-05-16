@@ -20,6 +20,10 @@ resource "helm_release" "deployment" {
     {
       name  = "ingress.tls.secretName"
       value = "tls-rancher-ingress"
+    },
+    {
+      name  = "service.type"
+      value = "ClusterIP"
     }
   ]
 }
