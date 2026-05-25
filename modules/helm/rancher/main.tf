@@ -22,6 +22,10 @@ resource "helm_release" "deployment" {
       value = "tls-rancher-ingress"
     },
     {
+      name  = "ingress.ingressClassName"
+      value = "traefik"
+    },
+    {
       name  = "service.type"
       value = "ClusterIP"
     }

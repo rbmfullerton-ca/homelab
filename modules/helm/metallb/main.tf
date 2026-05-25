@@ -10,6 +10,9 @@ resource "helm_release" "deployment" {
 }
 
 resource "kubernetes_manifest" "ip_pool" {
+  field_manager {
+    force_conflicts = true
+  }
   manifest = {
     apiVersion = "metallb.io/v1beta1"
     kind       = "IPAddressPool"
@@ -26,6 +29,7 @@ resource "kubernetes_manifest" "ip_pool" {
 }
 
 resource "kubernetes_manifest" "l2_advertisement" {
+  field_manager { force_conflicts = true }
   manifest = {
     apiVersion = "metallb.io/v1beta1"
     kind       = "L2Advertisement"

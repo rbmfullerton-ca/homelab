@@ -30,6 +30,14 @@ resource "helm_release" "deployment" {
   {
     name  = "persistence.reclaimPolicy"
     value = "Delete"
+  },
+  {
+    name  = "defaultSettings.storageReservedPercentageForDefaultDisk"
+    value = "10"
+  },
+  {
+    name  = "defaultSettings.storageMinimalAvailablePercentage"
+    value = "10"
   }
   ]
 }
