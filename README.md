@@ -1,4 +1,4 @@
-# Terraform + K3S Homelab Adventures
+# Terraform + K3S Homelab Adventures!
 
 Welcome to my journey into using **Terraform** to automate and manage my K3S-powered Kubernetes homelab! This project documents my experiments, learnings, and ongoing progress as I bring modern infrastructure-as-code tools into my personal environment.
 
