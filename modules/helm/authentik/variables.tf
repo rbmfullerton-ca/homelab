@@ -24,7 +24,7 @@ variable "chart" {
 variable "ver" {
   description = "Version of chart"
   type        = string
-  default     = "2026.5.0"
+  default     = "2026.5.2"
 }
 
 variable "authentik_secret_key" {
