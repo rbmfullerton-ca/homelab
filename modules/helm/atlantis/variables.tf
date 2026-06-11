@@ -24,7 +24,7 @@ variable "chart" {
 variable "ver" {
   description = "Version of chart"
   type        = string
-  default     = "6.4.0"
+  default     = "6.5.0"
 }
 
 variable "storageClass" {
