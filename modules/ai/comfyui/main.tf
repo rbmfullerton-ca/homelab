@@ -1,4 +1,4 @@
-﻿resource "kubernetes_persistent_volume_v1" "comfyui_local_pv" {
+resource "kubernetes_persistent_volume_v1" "comfyui_local_pv" {
   metadata {
     name = "comfyui-local-pv"
   }
@@ -78,7 +78,7 @@ resource "kubernetes_deployment_v1" "comfyui-nvidia" {
         }
         container {
           name = "comfyui-nvidia"
-          image = "mmartial/comfyui-nvidia-docker:ubuntu24_cuda12.6-20251230"
+          image = "mmartial/comfyui-nvidia-docker:ubuntu24_cuda12.6.3-20251228"
           port {
             container_port = 8188
           }
