@@ -6,7 +6,9 @@
     {
       "description": "Matches standard image/image_version pairs",
       "customType": "regex",
-      "fileMatch": ["(^|/)variables\\.tf$"],
+      "managerFilePatterns": [
+        "/(^|/)variables\\.tf$/"
+      ],
       "matchStrings": [
         "variable\\s+\"image\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
       ],
@@ -15,7 +17,9 @@
     {
       "description": "Matches image2/image_version2",
       "customType": "regex",
-      "fileMatch": ["(^|/)variables\\.tf$"],
+      "managerFilePatterns": [
+        "/(^|/)variables\\.tf$/"
+      ],
       "matchStrings": [
         "variable\\s+\"image2\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>[^\"]+)\"[^}]*?}\\s+variable\\s+\"image_version2\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
       ],
@@ -24,7 +28,9 @@
     {
       "description": "Matches Helm repo, chart, and ver variables",
       "customType": "regex",
-      "fileMatch": ["(^|/)variables\\.tf$"],
+      "managerFilePatterns": [
+        "/(^|/)variables\\.tf$/"
+      ],
       "matchStringsStrategy": "combination",
       "matchStrings": [
         "variable\\s+\"repo\"\\s+{[^}]*?default\\s+=\\s+\"(?<registryUrl>[^\"]+)\"",
@@ -36,7 +42,9 @@
     {
       "description": "Matches inline container images in .tf files",
       "customType": "regex",
-      "fileMatch": ["\\.tf$"],
+      "managerFilePatterns": [
+        "/\\.tf$/"
+      ],
       "matchStrings": [
         "image\\s+=\\s+\"(?<depName>[^:]+):(?<currentValue>[^\"]+)\""
       ],
@@ -45,7 +53,9 @@
     {
       "description": "Matches image and version labels in Kubernetes YAML",
       "customType": "regex",
-      "fileMatch": ["\\.yaml$"],
+      "managerFilePatterns": [
+        "/\\.yaml$/"
+      ],
       "matchStrings": [
         "image:\\s+(?<depName>[^:]+):(?<currentValue>[^\\s\\n\"]+)",
         "app\\.kubernetes\\.io/version:\\s+(?<currentValue>[^\\s\\n\"]+)"
@@ -56,7 +66,9 @@
     {
       "description": "Matches NVIDIA plugin in HCL maps",
       "customType": "regex",
-      "fileMatch": ["\\.tf$"],
+      "managerFilePatterns": [
+        "/\\.tf$/"
+      ],
       "matchStrings": [
         "\"image\"\\s+=\\s+\"(?<depName>nvcr\\.io/nvidia/k8s-device-plugin):(?<currentValue>[^\"]+)\""
       ],
