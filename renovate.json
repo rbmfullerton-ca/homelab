@@ -77,9 +77,20 @@
   ],
   "packageRules": [
     {
-      "description": "Universal Docker logic",
+      "description": "Universal Docker logic - semver by default",
       "matchDatasources": ["docker"],
-      "versioning": "docker"
+      "versioning": "semver"
+    },
+    {
+    "description": "Docker versioning for non-semver images",
+    "matchDatasources": ["docker"],
+    "matchPackageNames": [
+      "pihole/pihole",
+      "visibilityspots/cloudflared",
+      "redis",
+      "mariadb"
+    ],
+    "versioning": "docker"
     },
     {
       "description": "Radarr: Handle 'version-' with 4-part versioning (e.g., 6.0.4.10291)",
@@ -94,7 +105,7 @@
     {
       "description": "CUDA date-based versioning for ComfyUI",
       "matchPackageNames": ["mmartial/comfyui-nvidia-docker"],
-      "versioning": "regex:^(?<compatibility>ubuntu24_cuda12\\.6\\.3-)(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$"
+      "versioning": "regex:^(?<compatibility>ubuntu24_cuda12\\.6-)(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$"
     }
   ]
 }
