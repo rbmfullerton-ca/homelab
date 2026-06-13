@@ -107,7 +107,7 @@
     {
       "description": "CUDA date-based versioning for ComfyUI",
       "matchPackageNames": ["mmartial/comfyui-nvidia-docker"],
-      "versioning": "regex:^(?<compatibility>ubuntu24_cuda12\\.6-)(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$"
+      "versioning": "regex:^(?<compatibility>ubuntu24_cuda12\\.6\\.3-)(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$"
     }
   ]
 }
