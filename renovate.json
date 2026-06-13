@@ -3,6 +3,7 @@
   "extends": ["config:recommended"],
   "minimumReleaseAge": "14 days",
   "internalChecksFilter": "strict",
+  "minimumReleaseAgeBehaviour": "relax-requirement-on-missing-data",
   "customManagers": [
     {
       "description": "Matches standard image/image_version pairs",
@@ -92,36 +93,6 @@
       "mariadb"
     ],
     "versioning": "docker"
-    },
-    {
-      "description": "Use GitHub releases for homarr versioning/timestamps",
-      "matchPackageNames": ["ghcr.io/homarr-labs/homarr"],
-      "datasource": "github-releases",
-      "packageName": "homarr-labs/homarr"
-    },
-    {
-      "description": "Use GitHub releases for open-webui versioning/timestamps",
-      "matchPackageNames": ["ghcr.io/open-webui/open-webui"],
-      "datasource": "github-releases",
-      "packageName": "open-webui/open-webui"
-    },
-    {
-      "description": "Use GitHub releases for seerr versioning/timestamps",
-      "matchPackageNames": ["ghcr.io/seerr-team/seerr"],
-      "datasource": "github-releases",
-      "packageName": "seerr-team/seerr"
-    },
-    {
-      "description": "Use GitHub releases for nvidia k8s-device-plugin versioning/timestamps",
-      "matchPackageNames": ["nvcr.io/nvidia/k8s-device-plugin"],
-      "datasource": "github-releases",
-      "packageName": "NVIDIA/k8s-device-plugin"
-    },
-    {
-      "description": "Use GitHub releases for radarr versioning/timestamps",
-      "matchPackageNames": ["lscr.io/linuxserver/radarr"],
-      "datasource": "github-releases",
-      "packageName": "Radarr/Radarr"
     },
     {
       "description": "Radarr: Handle 'version-' with 4-part versioning (e.g., 6.0.4.10291)",
