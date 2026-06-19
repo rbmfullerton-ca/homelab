@@ -19,14 +19,14 @@ This repository contains my experiments with using **Terraform** to define, prov
 ```mermaid
 flowchart TD
  subgraph PX1VMs["VMs on Node 1"]
-        PX1VM["Docker VM<br>K3S Master 2<br>K3s Master 3<br>K3S Worker 2<br>K3S Longhorn 3<br>K3S Admin"]
+        PX1VM["K3S Master 2<br>K3s Master 3<br>K3S Worker 2<br>K3S Longhorn 3"]
         PX1DMZ["PX1DMZ"]
   end
  subgraph PX1DMZ["DMZ"]
-        PX1VMDMZ["Game Server"]
+        PX1VMDMZ["Game/Docker Server"]
   end
  subgraph PX2VMs["VMs on Node 2"]
-        PX2VM["K3S Master 1<br>K3S Worker 1<br>K3S Longhorn 1<br>K3s Longhorn 2"]
+        PX2VM["K3S Master 1<br>K3S Worker 1<br>K3S Longhorn 1<br>K3s Longhorn 2<br>K3S Admin"]
         PX2DMZ["PX2DMZ"]
   end
  subgraph PX2DMZ["DMZ"]
