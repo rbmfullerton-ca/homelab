@@ -1,4 +1,4 @@
-﻿variable "app_name" {
+variable "app_name" {
   description = "The name of the app/deployment"
   type        = string
 }
@@ -30,7 +30,7 @@ variable "image" {
 variable "image_version" {
   description = "Version of container image"
   type        = string
-  default     = "0.24.1234"
+  default     = "latest"
 }
 
 variable "mount_path" {
