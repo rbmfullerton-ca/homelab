@@ -100,11 +100,6 @@
       "versioning": "regex:^(?<compatibility>version-)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
     },
     {
-      "description": "Jackett: Handle 3-part or 4-part versioning with optional linuxserver build suffixes",
-      "matchPackageNames": ["lscr.io/linuxserver/jackett"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?:\\.(?<build>\\d+))?(?:-ls(?<revision>\\d+))?$"
-    },
-    {
       "description": "Bookshelf: Handle 'hardcover-v' with 4-part versioning (e.g., 0.4.20.127)",
       "matchPackageNames": ["ghcr.io/pennydreadful/bookshelf"],
       "versioning": "regex:^(?<compatibility>.*-v)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
