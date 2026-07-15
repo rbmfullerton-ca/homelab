@@ -25,7 +25,7 @@ resource "helm_release" "deployment" {
   },
   {
     name  = "persistence.defaultClassReplicaCount"
-    value = "3"
+    value = "2"
   },
   {
     name  = "persistence.reclaimPolicy"
