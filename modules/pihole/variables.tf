@@ -42,7 +42,7 @@ variable "image" {
 variable "image_version" {
   description = "Version of container image"
   type        = string
-  default     = "2026.06.0"
+  default     = "2026.07.1"
 }
 
 variable "image2" {
