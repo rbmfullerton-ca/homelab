@@ -18,7 +18,7 @@ variable "image" {
 variable "image_version" {
   description = "Version of container image"
   type        = string
-  default     = "8.8.0-alpine"
+  default     = "8.8.1-alpine"
 }
 
 variable "port" {
