@@ -6,15 +6,13 @@
   "minimumReleaseAgeBehaviour": "relax-requirement-on-missing-data",
   "customManagers": [
     {
-      "description": "Extract n8n via GitHub releases using combination strategy",
+      "description": "Extract n8n via GitHub releases safely",
       "customType": "regex",
       "managerFilePatterns": [
         "/(^|/)variables\\.tf$/"
       ],
-      "matchStringsStrategy": "combination",
       "matchStrings": [
-        "variable\\s+\"image\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>docker\\.n8n\\.io/n8nio/n8n)\"",
-        "variable\\s+\"image_version\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
+        "variable\\s+\"image\"\\s+{[^}]*?default\\s+=\\s+\"(?<depName>docker\\.n8n\\.io/n8nio/n8n)\"[\\s\\S]*?variable\\s+\"image_version\"\\s+{[^}]*?default\\s+=\\s+\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "n8n-io/n8n"
@@ -92,6 +90,12 @@
     }
   ],
   "packageRules": [
+    {
+      "description": "Handle n8n GitHub tags prefix and clean semver",
+      "matchPackageNames": ["n8n-io/n8n"],
+      "extractVersion": "^n8n@(?<version>.+)$",
+      "versioning": "semver"
+    },
     {
       "description": "Universal Docker logic - semver by default",
       "matchDatasources": ["docker"],
