@@ -371,6 +371,18 @@ resource "helm_release" "deployment" {
     name  = "environmentSecrets[24].secretKeyRef.key"
     value = "TF_VAR_radarr_envs"
   },
+  {
+    name  = "environmentSecrets[25].name"
+    value = "TF_VAR_n8n_envs"
+  },
+  {
+    name  = "environmentSecrets[25].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[25].secretKeyRef.key"
+    value = "TF_VAR_n8n_envs"
+  },
   ]
 
   set_sensitive = [{

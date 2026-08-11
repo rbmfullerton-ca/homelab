@@ -89,3 +89,8 @@ variable "app_name_atlantis" {
   type        = string
 }
 
+variable "app_name_n8n" {
+  description = "The name of the app/deployment"
+  type        = string
+}
+

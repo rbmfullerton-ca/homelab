@@ -339,4 +339,20 @@ variable "atlantis-githubAppSecret" {
   sensitive   = true
 }
 
+variable "n8n" {
+  description = "App name"
+  type        = string
+  default     = "n8n"
+}
+
+variable "n8n_envs" {
+  description = "Environment variables for n8n container"
+  sensitive   = true
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
+
 

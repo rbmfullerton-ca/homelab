@@ -41,7 +41,8 @@ resource "authentik_outpost" "outpost" {
     module.sonarr.proxy_id,
     module.radarr.proxy_id,
     module.comfyui.proxy_id,
-    module.atlantis.proxy_id
+    module.atlantis.proxy_id,
+    module.n8n.proxy_id
   ]
   service_connection = authentik_service_connection_kubernetes.local.id
 }
@@ -177,6 +178,15 @@ module request {
   app_slug = var.app_name_request
   app_external_host = "https://${var.app_name_request}.hozzlab.ca"
   token_validity = "hours=24"
+}
+
+module n8n {
+  source = "./modules/forwardauth_bundle"
+  app_name = var.app_name_n8n
+  app_slug = var.app_name_n8n
+  app_external_host = "https://${var.app_name_n8n}.hozzlab.ca"
+  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
+  token_validity = "hours=10"
 }
 
 

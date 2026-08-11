@@ -227,3 +227,12 @@ variable "radarr_envs" {
   default     = []
   sensitive = true 
 }
+
+variable "n8n_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}

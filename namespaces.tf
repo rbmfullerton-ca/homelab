@@ -178,3 +178,15 @@ resource "kubernetes_namespace_v1" "metallb-system" {
     ]
   }
 }
+
+resource "kubernetes_namespace_v1" "n8n" {
+  metadata {
+    name = "n8n"
+  }
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["cattle.io/status"],
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"],
+    ]
+  }
+}
