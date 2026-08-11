@@ -25,6 +25,16 @@ module "cert_rancher" {
   dns_names   = ["*.hozzlab.ca", "hozzlab.ca"]
 }
 
+module "cert_n8n" {
+  source      = "./modules/certificates"
+  cert_name   = "hozzlab"
+  namespace   = "n8n"
+  secret_name = "hozzlab-wildcard"
+  common_name = "*.hozzlab.ca"
+  dns_names   = ["*.hozzlab.ca", "hozzlab.ca"]
+}
+
+
 #module "cert_test" {
 #  source      = "./modules/certificates"
 #  cert_name   = "hozzlab-test"
