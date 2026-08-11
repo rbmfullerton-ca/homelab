@@ -79,6 +79,15 @@
   ],
   "packageRules": [
     {
+      "description": "Force n8n to track GitHub releases to avoid pre-release Docker tags",
+      "matchPackageNames": [
+        "docker.n8n.io/n8nio/n8n"
+      ],
+      "datasource": "github-releases",
+      "depName": "n8n-io/n8n",
+      "versioning": "semver"
+    },
+    {
       "description": "Universal Docker logic - semver by default",
       "matchDatasources": ["docker"],
       "versioning": "semver"
