@@ -86,6 +86,7 @@
       "datasource": "github-releases",
       "depName": "n8n-io/n8n",
       "versioning": "semver"
+      "ignoreUnstable": true
     },
     {
       "description": "Universal Docker logic - semver by default",
