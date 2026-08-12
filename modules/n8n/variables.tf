@@ -30,7 +30,7 @@ variable "image" {
 variable "image_version" {
   description = "Version of container image"
   type        = string
-  default     = "2.34.4"
+  default     = "2.35.1"
 }
 
 variable "mount_path" {
