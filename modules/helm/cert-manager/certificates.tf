@@ -34,6 +34,15 @@ module "cert_n8n" {
   dns_names   = ["*.hozzlab.ca", "hozzlab.ca"]
 }
 
+module "cert_n8n_standard" {
+  source      = "./modules/certificates"
+  cert_name   = "n8n"
+  namespace   = "n8n"
+  secret_name = "hozzlab-tls"
+  common_name = "n8n.hozzlab.ca"
+  dns_names   = ["n8n.hozzlab.ca"]
+}
+
 
 #module "cert_test" {
 #  source      = "./modules/certificates"
