@@ -16,6 +16,22 @@
       "routes" = [
         {
           "kind" = "Rule"
+          "match" = "Host(`${var.app_name}.hozzlab.ca`) && (PathPrefix(`/form/`) || PathPrefix(`/form-test/`) || PathPrefix(`/webhook/`))"
+          "middlewares" = [
+            {
+              "name" = "default-headers"
+              "namespace" = "traefik"
+            },
+          ]
+          "services" = [
+            {
+              "name" = var.app_name
+              "port" = var.port
+            }
+          ]
+        },
+        {
+          "kind" = "Rule"
           "match" = "Host(`${var.app_name}.hozzlab.ca`)"
           "middlewares" = [
             {
