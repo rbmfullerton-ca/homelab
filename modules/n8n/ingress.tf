@@ -16,7 +16,7 @@
       "routes" = [
         {
           "kind" = "Rule"
-          "match" = "Host(`${var.app_name}.hozzlab.ca`) && (PathPrefix(`/form/`) || PathPrefix(`/form-test/`) || PathPrefix(`/webhook/`))"
+          "match" = "Host(`${var.app_name}.hozzlab.ca`) && (PathPrefix(`/form/`) || PathPrefix(`/form-test/`) || PathPrefix(`/form-waiting/`)  || PathPrefix(`/webhook/`))"
           "middlewares" = [
             {
               "name" = "default-headers"
