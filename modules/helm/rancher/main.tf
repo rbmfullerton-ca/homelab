@@ -5,7 +5,7 @@ resource "helm_release" "deployment" {
   repository = var.repo
   chart      = var.chart
   version    = var.ver
-  timeout    = 900
+  timeout    = 1800
   wait       = true
 
   set = [
@@ -28,6 +28,14 @@ resource "helm_release" "deployment" {
     {
       name  = "service.type"
       value = "ClusterIP"
+    },
+    {
+      name  = "startupProbe.failureThreshold"
+      value = "60"
+    },
+    {
+      name  = "startupProbe.periodSeconds"
+      value = "10"
     }
   ]
 }
