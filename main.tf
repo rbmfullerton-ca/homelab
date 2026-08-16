@@ -1,4 +1,4 @@
-﻿terraform {
+terraform {
   backend "kubernetes" {
     secret_suffix    = "atlantis-homelab-state"
     namespace        = "atlantis"
@@ -85,9 +85,9 @@ module "ollama" {
   source = "./modules/ai/ollama"
 }
 
-module "automatic1111" {
-  source = "./modules/ai/automatic1111"
-}
+#module "automatic1111" {
+#  source = "./modules/ai/automatic1111"
+#}
 
 module "comfyui" {
   source = "./modules/ai/comfyui"
