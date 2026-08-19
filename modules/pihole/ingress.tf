@@ -33,7 +33,7 @@
         },
         {
           "kind" = "Rule"
-          "match" = "Host(`${var.app_name}-api.hozzlab.ca`)"
+          "match" = "Host(`${var.app_name}-api.hozzlab.ca`) && PathPrefix(`/api`)"
           "middlewares" = [
             {
               "name" = "default-headers"
