@@ -5,8 +5,8 @@
   }
   lifecycle {
     ignore_changes = [
-      manifest.metadata.annotations["deprecated.daemonset.template.generation"],
-      manifest.metadata.resourceVersion,
+      object.metadata.annotations["deprecated.daemonset.template.generation"],
+      object.metadata.resourceVersion,
     ]
   }
   manifest = {
