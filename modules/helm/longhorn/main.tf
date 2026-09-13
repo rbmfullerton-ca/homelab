@@ -38,6 +38,10 @@ resource "helm_release" "deployment" {
   {
     name  = "defaultSettings.storageMinimalAvailablePercentage"
     value = "10"
-  }
+  },
+  {
+    name  = "defaultSettings.concurrentReplicaRebuildPerNodeLimit"
+    value = "2"
+   }
   ]
 }
