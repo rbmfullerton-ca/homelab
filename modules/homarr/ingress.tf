@@ -16,6 +16,17 @@
       "routes" = [
         {
           "kind" = "Rule"
+          "match" = "Host(`${var.app_name}.hozzlab.ca`) && PathPrefix(`/_next/static/`)"
+          "priority" = 20
+          "services" = [
+            {
+              "name" = var.app_name
+              "port" = var.port
+            },
+          ]
+        },
+        {
+          "kind" = "Rule"
           "match" = "Host(`${var.app_name}.hozzlab.ca`)"
           "middlewares" = [
             {
