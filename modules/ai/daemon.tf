@@ -43,7 +43,7 @@
                   "value" = "false"
                 },
               ]
-              "image" = "nvcr.io/nvidia/k8s-device-plugin:v0.20.0"
+              "image" = "nvcr.io/nvidia/k8s-device-plugin:v0.20.1"
               "imagePullPolicy" = "IfNotPresent"
               "name" = "nvidia-device-plugin-ctr"
               "securityContext" = {
