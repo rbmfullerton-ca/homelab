@@ -355,4 +355,19 @@ variable "n8n_envs" {
   default = []
 }
 
+variable "chaptarr" {
+  description = "App name"
+  type        = string
+  default     = "chaptarr"
+}
+
+variable "chaptarr_envs" {
+  description = "Environment variables for chaptarr container"
+  sensitive   = true
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
 

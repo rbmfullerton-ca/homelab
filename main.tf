@@ -23,6 +23,7 @@ module "authentik" {
   app_name_request = var.request
   app_name_atlantis = var.atlantis
   app_name_n8n = var.n8n
+  app_name_chaptarr = var.chaptarr
   # optionally, pass variables expected by your module here
 }
 
@@ -61,6 +62,7 @@ module "pihole" {
   app_name_rancher = var.rancher
   app_name_atlantis = var.atlantis
   app_name_n8n = var.n8n
+  app_name_chaptarr = var.chaptarr
   app_name_pterodactyl_panel = var.pterodactyl_panel
   # optionally, pass variables expected by your module here
 }
@@ -222,6 +224,7 @@ module "atlantis-helm" {
   sonarr_envs = var.sonarr_envs
   radarr_envs = var.radarr_envs
   n8n_envs = var.n8n_envs
+  chaptarr_envs = var.chaptarr_envs
 }
 
 module "longhorn-helm" {
@@ -240,4 +243,10 @@ module "n8n" {
   source = "./modules/n8n"
   app_name = var.n8n
   envs = var.n8n_envs
+}
+
+module "chaptarr" {
+  source = "./modules/chaptarr"
+  app_name = var.chaptarr
+  envs = var.chaptarr_envs
 }

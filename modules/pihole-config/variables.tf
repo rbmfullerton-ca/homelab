@@ -94,3 +94,7 @@ variable "app_name_n8n" {
   type        = string
 }
 
+variable "app_name_chaptarr" {
+  description = "The name of the app/deployment"
+  type        = string
+}

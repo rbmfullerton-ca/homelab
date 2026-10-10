@@ -219,3 +219,13 @@ module n8n {
   }
 }
 
+module chaptarr {
+  source = "./modules/local_dns"
+  domain = "${var.app_name_chaptarr}.hozzlab.ca"
+  ip = "192.168.0.122"
+  providers = {
+    pihole.pihole1 = pihole.pihole1
+    pihole.pihole2 = pihole.pihole2
+    pihole.pihole3 = pihole.pihole3
+  }
+}

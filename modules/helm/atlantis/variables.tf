@@ -236,3 +236,12 @@ variable "n8n_envs" {
   default     = []
   sensitive = true 
 }
+
+variable "chaptarr_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}

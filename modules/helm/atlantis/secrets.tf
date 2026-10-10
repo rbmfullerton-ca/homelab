@@ -32,6 +32,7 @@ resource "kubernetes_secret_v1" "atlantis_terraform_secrets" {
     "TF_VAR_sonarr_envs" = jsonencode(var.sonarr_envs)
     "TF_VAR_radarr_envs" = jsonencode(var.radarr_envs)
     "TF_VAR_n8n_envs" = jsonencode(var.n8n_envs)
+    "TF_VAR_chaptarr_envs" = jsonencode(var.chaptarr_envs)
   }
 
   type = "Opaque"
