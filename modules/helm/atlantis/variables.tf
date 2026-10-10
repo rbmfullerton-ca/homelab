@@ -156,6 +156,24 @@ variable "pterodactyl_database_envs" {
   sensitive = true 
 }
 
+variable "pelican_panel_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
+variable "pelican_database_envs" { 
+  type        = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  sensitive = true 
+}
+
 variable "bazarr_envs" { 
   type        = list(object({
     name  = string

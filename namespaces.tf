@@ -46,6 +46,18 @@ resource "kubernetes_namespace_v1" "pterodactyl" {
   }
 }
 
+resource "kubernetes_namespace_v1" "pelican" {
+  metadata {
+    name = "pelican"
+  }
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["cattle.io/status"],
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"],
+    ]
+  }
+}
+
 resource "kubernetes_namespace_v1" "cronjobs" {
   metadata {
     name = "cronjobs"

@@ -23,6 +23,8 @@ resource "kubernetes_secret_v1" "atlantis_terraform_secrets" {
     "TF_VAR_openwebui_envs" = jsonencode(var.openwebui_envs)
     "TF_VAR_pterodactyl_panel_envs" = jsonencode(var.pterodactyl_panel_envs)
     "TF_VAR_pterodactyl_database_envs" = jsonencode(var.pterodactyl_database_envs)
+    "TF_VAR_pelican_panel_envs" = jsonencode(var.pelican_panel_envs)
+    "TF_VAR_pelican_database_envs" = jsonencode(var.pelican_database_envs)
     "TF_VAR_bazarr_envs" = jsonencode(var.bazarr_envs)
     "TF_VAR_pihole_envs" = jsonencode(var.pihole_envs)
     "TF_VAR_pihole_envs2" = jsonencode(var.pihole_envs2)

@@ -152,6 +152,45 @@ variable "pterodactyl_database_envs" {
   default = []
 }
 
+variable "pelican_panel" {
+  description = "App name"
+  type        = string
+  default     = "pelican-panel"
+}
+
+variable "pelican_database" {
+  description = "App name"
+  type        = string
+  default     = "pelican-database"
+}
+
+variable "pelican_cache" {
+  description = "App name"
+  type        = string
+  default     = "pelican-cache"
+}
+
+variable "pelican_panel_envs" {
+  description = "Environment variables for container"
+  sensitive   = true
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
+
+variable "pelican_database_envs" {
+  description = "Environment variables for container"
+  sensitive   = true
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
+
+
 variable "bazarr" {
   description = "App name"
   type        = string

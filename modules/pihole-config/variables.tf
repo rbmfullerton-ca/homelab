@@ -39,6 +39,11 @@ variable "app_name_pterodactyl_panel" {
   type        = string
 }
 
+variable "app_name_pelican_panel" {
+  description = "The name of the app/deployment"
+  type        = string
+}
+
 variable "app_name_bazarr" {
   description = "The name of the app/deployment"
   type        = string

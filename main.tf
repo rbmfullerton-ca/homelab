@@ -64,6 +64,7 @@ module "pihole" {
   app_name_n8n = var.n8n
   app_name_chaptarr = var.chaptarr
   app_name_pterodactyl_panel = var.pterodactyl_panel
+  app_name_pelican_panel = var.pelican_panel
   # optionally, pass variables expected by your module here
 }
 
@@ -116,6 +117,23 @@ module "pterodactyl_database" {
 module "pterodactyl_cache" {
   source = "./modules/pterodactyl/cache"
   app_name = var.pterodactyl_cache
+}
+
+module "pelican_panel" {
+  source = "./modules/pelican/panel"
+  app_name = var.pelican_panel
+  envs = var.pelican_panel_envs
+}
+
+module "pelican_database" {
+  source = "./modules/pelican/database"
+  app_name = var.pelican_database
+  envs = var.pelican_database_envs
+}
+
+module "pelican_cache" {
+  source = "./modules/pelican/cache"
+  app_name = var.pelican_cache
 }
 
 module "bazarr" {
@@ -215,6 +233,8 @@ module "atlantis-helm" {
   openwebui_envs = var.openwebui_envs
   pterodactyl_panel_envs = var.pterodactyl_panel_envs
   pterodactyl_database_envs = var.pterodactyl_database_envs
+  pelican_panel_envs = var.pelican_panel_envs
+  pelican_database_envs = var.pelican_database_envs
   bazarr_envs = var.bazarr_envs
   pihole_envs = var.pihole_envs
   pihole_envs2 = var.pihole_envs2
