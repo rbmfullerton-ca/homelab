@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "minimumReleaseAge": "14 days",
   "internalChecksFilter": "strict",
-  "minimumReleaseAgeBehaviour": "relax-requirement-on-missing-data",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "customManagers": [
     {
       "description": "Matches standard image/image_version pairs",
