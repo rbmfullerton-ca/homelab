@@ -17,12 +17,6 @@ resource "helm_release" "deployment" {
         "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       ]
 
-      tlsOptions = {
-        default = {
-          minVersion = "VersionTLS12"
-        }
-      }
-
       deployment = {
         enabled       = true
         replicas      = 2
