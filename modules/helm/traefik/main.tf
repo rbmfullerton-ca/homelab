@@ -1,4 +1,4 @@
-﻿resource "helm_release" "deployment" {
+resource "helm_release" "deployment" {
   name       = var.app_name
   namespace  = var.namespace
   repository = var.repo
@@ -16,6 +16,12 @@
         "--entrypoints.web.http.redirections.entrypoint.scheme=https",
         "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       ]
+
+      tlsOptions = {
+        default = {
+          minVersion = "VersionTLS12"
+        }
+      }
 
       deployment = {
         enabled       = true
