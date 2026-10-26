@@ -14,9 +14,14 @@ resource "helm_release" "deployment" {
         "--log.level=INFO",
         "--entrypoints.web.http.redirections.entrypoint.to=websecure",
         "--entrypoints.web.http.redirections.entrypoint.scheme=https",
-        "--entrypoints.web.http.redirections.entrypoint.permanent=true",
-        "--tls.options.default.minVersion=VersionTLS12"
+        "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       ]
+
+      tlsOptions = {
+        default = {
+          minVersion = "VersionTLS12"
+        }
+      }
 
       deployment = {
         enabled       = true
