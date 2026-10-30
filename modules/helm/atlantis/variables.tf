@@ -156,6 +156,11 @@ variable "pterodactyl_database_envs" {
   sensitive = true 
 }
 
+variable "client_secret_pelican_panel" { 
+  type = string
+  sensitive = true 
+}
+
 variable "pelican_panel_envs" { 
   type        = list(object({
     name  = string

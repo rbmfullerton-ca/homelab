@@ -190,6 +190,11 @@ variable "pelican_database_envs" {
   default = []
 }
 
+variable "client_secret_pelican_panel" {
+  description = "Secret for authentik for pelican auth"
+  type        = string
+  sensitive   = true
+}
 
 variable "bazarr" {
   description = "App name"

@@ -24,6 +24,8 @@ module "authentik" {
   app_name_atlantis = var.atlantis
   app_name_n8n = var.n8n
   app_name_chaptarr = var.chaptarr
+  app_name_pelican_panel = var.pelican_panel
+  client_secret_pelican_panel = var.client_secret_pelican_panel
   # optionally, pass variables expected by your module here
 }
 
@@ -245,6 +247,7 @@ module "atlantis-helm" {
   radarr_envs = var.radarr_envs
   n8n_envs = var.n8n_envs
   chaptarr_envs = var.chaptarr_envs
+  client_secret_pelican_panel = var.client_secret_pelican_panel
 }
 
 module "longhorn-helm" {

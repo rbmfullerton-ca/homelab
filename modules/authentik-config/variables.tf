@@ -78,3 +78,22 @@ variable "app_name_chaptarr" {
   description = "The name of the app/deployment"
   type        = string
 }
+
+variable "app_name_pelican_panel" {
+  description = "The name of the app/deployment"
+  type        = string
+}
+
+variable "client_secret_pelican_panel" {
+  description = "The name of the app/deployment"
+  type        = string
+  sensitive   = true
+}
+
+variable "redirect_uris_pelican_panel" {
+  description = "List Of Redirect URIs"
+  type        = list(string)
+  default     = [
+    "https://pelican-panel.hozzlab.ca/auth/oauth/callback/authentik"
+  ]
+}

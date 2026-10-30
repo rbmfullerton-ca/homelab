@@ -198,3 +198,13 @@ module chaptarr {
   require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
   token_validity = "hours=10"
 }
+
+module pelican {
+  source = "./modules/oauth_bundle"
+  app_name      = var.app_name_pelican_panel
+  app_slug      = var.app_name_pelican_panel
+  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
+  redirect_uris = var.redirect_uris_pelican_panel
+  token_validity = "hours=10"
+  client_secret  = var.client_secret_pelican_panel
+}

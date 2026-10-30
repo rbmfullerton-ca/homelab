@@ -419,6 +419,18 @@ resource "helm_release" "deployment" {
     name  = "environmentSecrets[28].secretKeyRef.key"
     value = "TF_VAR_pelican_database_envs"
   },
+  {
+    name  = "environmentSecrets[29].name"
+    value = "TF_VAR_client_secret_pelican_panel"
+  },
+  {
+    name  = "environmentSecrets[29].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[29].secretKeyRef.key"
+    value = "TF_VAR_client_secret_pelican_panel"
+  },
   ]
 
   set_sensitive = [{
