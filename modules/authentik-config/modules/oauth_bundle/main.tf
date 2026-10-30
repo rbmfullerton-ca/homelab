@@ -44,6 +44,7 @@ resource "authentik_provider_oauth2" "name" {
   sub_mode                   = "user_username"
   include_claims_in_id_token = true
   property_mappings = data.authentik_property_mapping_provider_scope.scopes.ids
+  signing_key = var.signing_key
   allowed_redirect_uris = [
     for uri in var.redirect_uris : {
       matching_mode = "strict"

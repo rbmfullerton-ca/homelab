@@ -431,6 +431,18 @@ resource "helm_release" "deployment" {
     name  = "environmentSecrets[29].secretKeyRef.key"
     value = "TF_VAR_client_secret_pelican_panel"
   },
+  {
+    name  = "environmentSecrets[30].name"
+    value = "TF_VAR_client_secret_openwebui"
+  },
+  {
+    name  = "environmentSecrets[30].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[30].secretKeyRef.key"
+    value = "TF_VAR_client_secret_openwebui"
+  },
   ]
 
   set_sensitive = [{

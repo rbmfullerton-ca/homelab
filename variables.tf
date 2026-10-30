@@ -196,6 +196,12 @@ variable "client_secret_pelican_panel" {
   sensitive   = true
 }
 
+variable "client_secret_openwebui" {
+  description = "Secret for authentik for openwebui auth"
+  type        = string
+  sensitive   = true
+}
+
 variable "bazarr" {
   description = "App name"
   type        = string

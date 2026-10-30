@@ -4,10 +4,33 @@
       source  = "goauthentik/authentik"
       version = "~> 2026.8.0" # or latest
     }
+    tls = {
+      source = "hashicorp/tls"
+    }
   }
 }
 
-# Shared config
+resource "tls_private_key" "signing" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "tls_self_signed_cert" "signing" {
+  private_key_pem       = tls_private_key.signing.private_key_pem
+  validity_period_hours = 87600 # 10 years
+  early_renewal_hours   = 720
+  allowed_uses          = ["digital_signature"]
+
+  subject {
+    common_name = "authentik OIDC signing"
+  }
+}
+
+resource "authentik_certificate_key_pair" "signing" {
+  name             = "oidc-signing"
+  certificate_data = tls_self_signed_cert.signing.cert_pem
+  key_data         = tls_private_key.signing.private_key_pem
+}
 
 # Declare policy expressions
 resource "authentik_policy_expression" "require_homelab_ent" {
@@ -30,7 +53,6 @@ resource "authentik_outpost" "outpost" {
   protocol_providers = [
     module.uptimekuma.proxy_id,
     module.homarr.proxy_id,
-    module.openwebui.proxy_id,
     module.pihole.proxy_id,
     module.pihole2.proxy_id,
     module.jackett.proxy_id,
@@ -77,16 +99,6 @@ module jackett {
   app_name = var.app_name_jackett
   app_slug = var.app_name_jackett
   app_external_host = "https://${var.app_name_jackett}.hozzlab.ca"
-  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
-  token_validity = "hours=10"
-}
-
-
-module openwebui {
-  source = "./modules/forwardauth_bundle"
-  app_name = var.app_name_openwebui
-  app_slug = var.app_name_openwebui
-  app_external_host = "https://${var.app_name_openwebui}.hozzlab.ca"
   require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
   token_validity = "hours=10"
 }
@@ -207,4 +219,15 @@ module pelican {
   redirect_uris = var.redirect_uris_pelican_panel
   token_validity = "hours=10"
   client_secret  = var.client_secret_pelican_panel
+}
+
+module openwebui {
+  source = "./modules/oauth_bundle"
+  app_name      = var.app_name_openwebui
+  app_slug      = var.app_name_openwebui
+  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
+  redirect_uris = var.redirect_uris_openwebui
+  token_validity = "hours=10"
+  client_secret  = var.client_secret_openwebui
+  signing_key = authentik_certificate_key_pair.signing.id
 }

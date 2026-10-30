@@ -23,12 +23,6 @@ variable "app_name_jackett" {
   type        = string
 }
 
-
-variable "app_name_openwebui" {
-  description = "The name of the app/deployment"
-  type        = string
-}
-
 variable "app_name_comfyui" {
   description = "The name of the app/deployment"
   type        = string
@@ -95,5 +89,24 @@ variable "redirect_uris_pelican_panel" {
   type        = list(string)
   default     = [
     "https://pelican-panel.hozzlab.ca/auth/oauth/callback/authentik"
+  ]
+}
+
+variable "app_name_openwebui" {
+  description = "The name of the app/deployment"
+  type        = string
+}
+
+variable "client_secret_openwebui" {
+  description = "The name of the app/deployment"
+  type        = string
+  sensitive   = true
+}
+
+variable "redirect_uris_openwebui" {
+  description = "List Of Redirect URIs"
+  type        = list(string)
+  default     = [
+    "https://openwebui.hozzlab.ca/oauth/oidc/callback"
   ]
 }

@@ -36,3 +36,8 @@ variable "client_secret" {
   sensitive   = true
   description = "Custom OAuth2 Client Secret"
 }
+
+variable "signing_key" {
+  type    = string
+  default = null
+}

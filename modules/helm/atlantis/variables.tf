@@ -138,6 +138,11 @@ variable "openwebui_envs" {
   sensitive = true 
 }
 
+variable "client_secret_openwebui" { 
+  type = string
+  sensitive = true 
+}
+
 variable "pterodactyl_panel_envs" { 
   type        = list(object({
     name  = string

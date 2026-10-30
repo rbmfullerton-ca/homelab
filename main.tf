@@ -26,6 +26,7 @@ module "authentik" {
   app_name_chaptarr = var.chaptarr
   app_name_pelican_panel = var.pelican_panel
   client_secret_pelican_panel = var.client_secret_pelican_panel
+  client_secret_openwebui = var.client_secret_openwebui
   # optionally, pass variables expected by your module here
 }
 
@@ -248,6 +249,7 @@ module "atlantis-helm" {
   n8n_envs = var.n8n_envs
   chaptarr_envs = var.chaptarr_envs
   client_secret_pelican_panel = var.client_secret_pelican_panel
+  client_secret_openwebui = var.client_secret_openwebui
 }
 
 module "longhorn-helm" {

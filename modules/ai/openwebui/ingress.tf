@@ -20,7 +20,7 @@
           "middlewares" = [
             {
               "name" = "default-headers"
-              "namespace" = "authentik"
+              "namespace" = "traefik"
             },
           ]
           "priority" = 10
