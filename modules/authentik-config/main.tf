@@ -219,6 +219,7 @@ module pelican {
   redirect_uris = var.redirect_uris_pelican_panel
   token_validity = "hours=10"
   client_secret  = var.client_secret_pelican_panel
+  grant_types = ["authorization_code", "refresh_token"]
 }
 
 module openwebui {
@@ -230,4 +231,5 @@ module openwebui {
   token_validity = "hours=10"
   client_secret  = var.client_secret_openwebui
   signing_key = authentik_certificate_key_pair.signing.id
+  grant_types = ["authorization_code", "refresh_token"]
 }

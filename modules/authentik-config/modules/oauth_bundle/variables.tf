@@ -41,3 +41,8 @@ variable "signing_key" {
   type    = string
   default = null
 }
+
+variable "grant_types" {
+  type    = list(string)
+  default = null
+}
