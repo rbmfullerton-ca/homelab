@@ -52,7 +52,7 @@ resource "kubernetes_deployment_v1" "comfyui-nvidia" {
     namespace = "ai"
   }
   spec {
-    replicas = 1
+    replicas = 0
     selector {
       match_labels = {
         app = "comfyui-nvidia"
@@ -119,6 +119,30 @@ resource "kubernetes_deployment_v1" "comfyui-nvidia" {
           env {
             name = "NVIDIA_DRIVER_CAPABILITIES"
             value = "all"
+          }
+          env {
+            name  = "NVIDIA_DRIVER_CAPABILITIES"
+            value = "all"
+          }
+          env {
+            name  = "DISABLE_UPGRADES"
+            value = "true"
+          }
+          env {
+            name  = "USE_PIPUPGRADE"
+            value = "false"
+          }
+          env {
+            name  = "PIP_CONSTRAINT"
+            value = "/comfy/mnt/pip-constraints.txt"
+          }
+          env {
+            name  = "UV_CONSTRAINT"
+            value = "/comfy/mnt/pip-constraints.txt"
+          }
+          env {
+            name  = "COMFY_CMDLINE_EXTRA"
+            value = "--force-fp32"
           }
         }
         volume {
