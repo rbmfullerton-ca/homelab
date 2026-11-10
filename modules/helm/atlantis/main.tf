@@ -35,6 +35,10 @@ resource "helm_release" "deployment" {
     value = "--automerge"
   },
   {
+    name  = "extraArgs[1]"
+    value = "--default-tf-version=1.9.5"
+  },
+  {
     name  = "podTemplate.annotations.secret\\.reloader\\.stakater\\.com/reload"
     value = "atlantis-terraform-vars"
   },
@@ -78,10 +82,6 @@ resource "helm_release" "deployment" {
   {
     name  = "environmentSecrets[0].secretKeyRef.name"
     value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
-  },
-  {
-    name  = "environment.ATLANTIS_DEFAULT_TF_VERSION"
-    value = "1.9.5"
   },
   {
     name  = "environmentSecrets[0].secretKeyRef.key"
