@@ -1,4 +1,4 @@
-﻿data "kubernetes_secret_v1" "atlantis_gh_key" {
+data "kubernetes_secret_v1" "atlantis_gh_key" {
   metadata {
     name      = "atlantis-github-app-key"
     namespace = var.namespace
@@ -33,6 +33,10 @@ resource "helm_release" "deployment" {
     {
     name = "extraArgs[0]"
     value = "--automerge"
+  },
+  {
+    name  = "environment.ATLANTIS_DEFAULT_TF_VERSION"
+    value = "1.12.2"
   },
   {
     name  = "podTemplate.annotations.secret\\.reloader\\.stakater\\.com/reload"

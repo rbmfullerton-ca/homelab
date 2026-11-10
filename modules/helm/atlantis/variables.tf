@@ -1,4 +1,4 @@
-﻿variable "app_name" {
+variable "app_name" {
   description = "The name of the app/deployment"
   type        = string
 }
@@ -24,7 +24,7 @@ variable "chart" {
 variable "ver" {
   description = "Version of chart"
   type        = string
-  default     = "6.16.2"
+  default     = "7.0.1"
 }
 
 variable "storageClass" {
