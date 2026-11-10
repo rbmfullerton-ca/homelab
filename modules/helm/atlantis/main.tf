@@ -1,4 +1,4 @@
-﻿data "kubernetes_secret_v1" "atlantis_gh_key" {
+data "kubernetes_secret_v1" "atlantis_gh_key" {
   metadata {
     name      = "atlantis-github-app-key"
     namespace = var.namespace
@@ -78,6 +78,10 @@ resource "helm_release" "deployment" {
   {
     name  = "environmentSecrets[0].secretKeyRef.name"
     value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "defaultTFVersion"
+    value = "1.9.5"
   },
   {
     name  = "environmentSecrets[0].secretKeyRef.key"
