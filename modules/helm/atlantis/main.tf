@@ -36,7 +36,7 @@ resource "helm_release" "deployment" {
   },
   {
     name  = "environment.ATLANTIS_DEFAULT_TF_VERSION"
-    value = "1.9.5"
+    value = "1.12.2"
   },
   {
     name  = "podTemplate.annotations.secret\\.reloader\\.stakater\\.com/reload"
