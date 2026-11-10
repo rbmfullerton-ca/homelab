@@ -80,7 +80,7 @@ resource "helm_release" "deployment" {
     value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
   },
   {
-    name  = "defaultTFVersion"
+    name  = "environment.ATLANTIS_DEFAULT_TF_VERSION"
     value = "1.9.5"
   },
   {
