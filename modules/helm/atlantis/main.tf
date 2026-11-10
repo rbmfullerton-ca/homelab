@@ -35,8 +35,8 @@ resource "helm_release" "deployment" {
     value = "--automerge"
   },
   {
-    name  = "extraArgs[1]"
-    value = "--default-tf-version=1.9.5"
+    name  = "defaultTFVersion"
+    value = "1.9.5"
   },
   {
     name  = "podTemplate.annotations.secret\\.reloader\\.stakater\\.com/reload"
