@@ -35,7 +35,7 @@ resource "helm_release" "deployment" {
     value = "--automerge"
   },
   {
-    name  = "defaultTFVersion"
+    name  = "environment.ATLANTIS_DEFAULT_TF_VERSION"
     value = "1.9.5"
   },
   {
