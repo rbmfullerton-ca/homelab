@@ -18,6 +18,16 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
+      "fileMatch": ["(^$|/)main\\.tf$"],
+      "matchStrings": [
+        "name\\s*=\\s*\"environment\\.ATLANTIS_DEFAULT_TF_VERSION\"\n\\s*value\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "hashicorp/terraform",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "hashicorp"
+    },
+    {
       "description": "Matches image2/image_version2",
       "customType": "regex",
       "managerFilePatterns": [
