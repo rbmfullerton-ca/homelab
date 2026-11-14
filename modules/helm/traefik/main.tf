@@ -71,14 +71,14 @@ resource "helm_release" "deployment" {
 
       service = {
         enabled             = true
-        type                = "LoadBalancer"
         annotations         = {}
         labels              = {}
         spec = {
           loadBalancerIP = "192.168.0.122"
+          type                = "LoadBalancer"
+          loadBalancerSourceRanges = []
+          externalIPs = []
         }
-        loadBalancerSourceRanges = []
-        externalIPs = []
       }
     })
   ]
