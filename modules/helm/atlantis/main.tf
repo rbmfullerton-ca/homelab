@@ -447,6 +447,30 @@ resource "helm_release" "deployment" {
     name  = "environmentSecrets[30].secretKeyRef.key"
     value = "TF_VAR_client_secret_openwebui"
   },
+  {
+    name  = "environmentSecrets[31].name"
+    value = "TF_VAR_client_secret_radarr-oidc"
+  },
+  {
+    name  = "environmentSecrets[31].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[31].secretKeyRef.key"
+    value = "TF_VAR_client_secret_radarr-oidc"
+  },
+  {
+    name  = "environmentSecrets[32].name"
+    value = "TF_VAR_client_secret_chaptarr-oidc"
+  },
+  {
+    name  = "environmentSecrets[32].secretKeyRef.name"
+    value = kubernetes_secret_v1.atlantis_terraform_secrets.metadata[0].name
+  },
+  {
+    name  = "environmentSecrets[32].secretKeyRef.key"
+    value = "TF_VAR_client_secret_chaptarr-oidc"
+  },
   ]
 
   set_sensitive = [{

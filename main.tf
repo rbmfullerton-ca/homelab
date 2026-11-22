@@ -252,6 +252,8 @@ module "atlantis-helm" {
   chaptarr_envs = var.chaptarr_envs
   client_secret_pelican_panel = var.client_secret_pelican_panel
   client_secret_openwebui = var.client_secret_openwebui
+  client_secret_radarr-oidc = var.client_secret_radarr-oidc
+  client_secret_chaptarr-oidc = var.client_secret_chaptarr-oidc
 }
 
 module "longhorn-helm" {

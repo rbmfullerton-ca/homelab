@@ -37,6 +37,8 @@ resource "kubernetes_secret_v1" "atlantis_terraform_secrets" {
     "TF_VAR_chaptarr_envs" = jsonencode(var.chaptarr_envs)
     "TF_VAR_client_secret_pelican_panel" = var.client_secret_pelican_panel
     "TF_VAR_client_secret_openwebui" = var.client_secret_openwebui
+    "TF_VAR_client_secret_radarr-oidc" = var.client_secret_radarr-oidc
+    "TF_VAR_client_secret_chaptarr-oidc" = var.client_secret_chaptarr-oidc
   }
 
   type = "Opaque"

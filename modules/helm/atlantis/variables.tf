@@ -273,3 +273,13 @@ variable "chaptarr_envs" {
   default     = []
   sensitive = true 
 }
+
+variable "client_secret_radarr-oidc" { 
+  type = string
+  sensitive = true 
+}
+
+variable "client_secret_chaptarr-oidc" { 
+  type = string
+  sensitive = true 
+}
