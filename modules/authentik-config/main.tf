@@ -15,6 +15,17 @@ resource "tls_private_key" "signing" {
   rsa_bits  = 4096
 }
 
+resource "authentik_property_mapping_provider_scope" "email_verified" {
+  name       = "Email Verified"
+  scope_name = "email"
+  expression = <<-EOT
+    return {
+        "email": request.user.email,
+        "email_verified": True,
+    }
+  EOT
+}
+
 resource "tls_self_signed_cert" "signing" {
   private_key_pem       = tls_private_key.signing.private_key_pem
   validity_period_hours = 87600 # 10 years
@@ -232,4 +243,30 @@ module openwebui {
   client_secret  = var.client_secret_openwebui
   signing_key = authentik_certificate_key_pair.signing.id
   grant_types = ["authorization_code", "refresh_token"]
+}
+
+module chaptarr-oidc {
+  source = "./modules/oauth_bundle"
+  app_name      = var.app_name_chaptarr-oidc
+  app_slug      = var.app_name_chaptarr-oidc
+  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
+  redirect_uris = var.redirect_uris_chaptarr-oidc
+  token_validity = "hours=10"
+  client_secret  = var.client_secret_chaptarr-oidc
+  signing_key = authentik_certificate_key_pair.signing.id
+  grant_types = ["authorization_code", "refresh_token"]
+  email_scope_mapping_id = authentik_property_mapping_provider_scope.email_verified.id
+}
+
+module radarr-oidc {
+  source = "./modules/oauth_bundle"
+  app_name      = var.app_name_radarr-oidc
+  app_slug      = var.app_name_radarr-oidc
+  require_homelab_ent_policy_id = authentik_policy_expression.require_homelab_ent.id
+  redirect_uris = var.redirect_uris_radarr-oidc
+  token_validity = "hours=10"
+  client_secret  = var.client_secret_radarr-oidc
+  signing_key = authentik_certificate_key_pair.signing.id
+  grant_types = ["authorization_code", "refresh_token"]
+  email_scope_mapping_id = authentik_property_mapping_provider_scope.email_verified.id
 }

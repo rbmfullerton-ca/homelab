@@ -421,3 +421,14 @@ variable "chaptarr_envs" {
   default = []
 }
 
+variable "client_secret_chaptarr-oidc" {
+  description = "Secret for authentik for pelican auth"
+  type        = string
+  sensitive   = true
+}
+
+variable "client_secret_radarr-oidc" {
+  description = "Secret for authentik for pelican auth"
+  type        = string
+  sensitive   = true
+}

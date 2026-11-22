@@ -7,12 +7,21 @@
   }
 }
 
-data "authentik_property_mapping_provider_scope" "scopes" {
+data "authentik_property_mapping_provider_scope" "base" {
   managed_list = [
     "goauthentik.io/providers/oauth2/scope-openid",
-    "goauthentik.io/providers/oauth2/scope-email",
     "goauthentik.io/providers/oauth2/scope-profile"
   ]
+}
+
+data "authentik_property_mapping_provider_scope" "default_email" {
+  managed_list = [
+    "goauthentik.io/providers/oauth2/scope-email"
+  ]
+}
+
+locals {
+  email_mapping_ids = var.email_scope_mapping_id != null ? [var.email_scope_mapping_id] : data.authentik_property_mapping_provider_scope.default_email.ids
 }
 
 # Data Sources
@@ -43,7 +52,10 @@ resource "authentik_provider_oauth2" "name" {
   access_token_validity = var.token_validity
   sub_mode                   = "user_username"
   include_claims_in_id_token = true
-  property_mappings = data.authentik_property_mapping_provider_scope.scopes.ids
+  property_mappings = concat(
+    data.authentik_property_mapping_provider_scope.base.ids,
+    local.email_mapping_ids
+  )
   signing_key = var.signing_key
   grant_types = var.grant_types
   allowed_redirect_uris = [

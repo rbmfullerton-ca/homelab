@@ -63,6 +63,26 @@ resource "kubernetes_network_policy_v1" "servarr_egress_to_internal" {
 
     egress {
       to {
+        namespace_selector {
+         match_labels = {
+            "kubernetes.io/metadata.name" = "traefik"
+         }
+        }
+        pod_selector {
+         match_labels = {
+           "app.kubernetes.io/name" = "traefik"
+         }
+       }
+      }
+
+     ports {
+       protocol = "TCP"
+        port     = 443
+      }
+    }
+
+    egress {
+      to {
         ip_block {
           cidr = "172.16.0.100/32"
         }
@@ -120,20 +140,6 @@ resource "kubernetes_network_policy_v1" "seerr_egress_allow" {
       ports {
         protocol = "TCP"
         port     = 8989
-      }
-    }
-
-    # Allow to plex
-    egress {
-      to {
-        ip_block {
-          cidr = "172.16.0.35/32"
-        }
-      }
-
-      ports {
-        protocol = "TCP"
-        port     = 32400
       }
     }
   }

@@ -79,7 +79,7 @@ variable "app_name_pelican_panel" {
 }
 
 variable "client_secret_pelican_panel" {
-  description = "The name of the app/deployment"
+  description = "Client Secret"
   type        = string
   sensitive   = true
 }
@@ -98,7 +98,7 @@ variable "app_name_openwebui" {
 }
 
 variable "client_secret_openwebui" {
-  description = "The name of the app/deployment"
+  description = "Client Secret"
   type        = string
   sensitive   = true
 }
@@ -108,5 +108,45 @@ variable "redirect_uris_openwebui" {
   type        = list(string)
   default     = [
     "https://openwebui.hozzlab.ca/oauth/oidc/callback"
+  ]
+}
+
+variable "app_name_chaptarr-oidc" {
+  description = "The name of the app/deployment"
+  type        = string
+  default     = "chaptarr-oidc"
+}
+
+variable "client_secret_chaptarr-oidc" {
+  description = "Client Secret"
+  type        = string
+  sensitive   = true
+}
+
+variable "redirect_uris_chaptarr-oidc" {
+  description = "List Of Redirect URIs"
+  type        = list(string)
+  default     = [
+    "https://chaptarr.hozzlab.ca/signin-oidc"
+  ]
+}
+
+variable "app_name_radarr-oidc" {
+  description = "The name of the app/deployment"
+  type        = string
+  default     = "radarr-oidc"
+}
+
+variable "client_secret_radarr-oidc" {
+  description = "Client Secret"
+  type        = string
+  sensitive   = true
+}
+
+variable "redirect_uris_radarr-oidc" {
+  description = "List Of Redirect URIs"
+  type        = list(string)
+  default     = [
+    "https://radarr.hozzlab.ca/signin-oidc"
   ]
 }

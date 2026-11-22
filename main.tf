@@ -27,6 +27,8 @@ module "authentik" {
   app_name_pelican_panel = var.pelican_panel
   client_secret_pelican_panel = var.client_secret_pelican_panel
   client_secret_openwebui = var.client_secret_openwebui
+  client_secret_chaptarr-oidc = var.client_secret_chaptarr-oidc
+  client_secret_radarr-oidc = var.client_secret_radarr-oidc
   # optionally, pass variables expected by your module here
 }
 

@@ -46,3 +46,8 @@ variable "grant_types" {
   type    = list(string)
   default = null
 }
+
+variable "email_scope_mapping_id" {
+  type    = string
+  default = null # null = use authentik's default email mapping
+}
