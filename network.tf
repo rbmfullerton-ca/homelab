@@ -142,5 +142,19 @@ resource "kubernetes_network_policy_v1" "seerr_egress_allow" {
         port     = 8989
       }
     }
+
+    # Allow to Plex
+    egress {
+      to {
+        ip_block {
+          cidr = "172.16.0.135/32"
+        }
+      }
+
+      ports {
+        protocol = "TCP"
+        port     = 32400
+      }
+    }
   }
 }
